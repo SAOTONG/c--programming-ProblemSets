@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
 	string file_name = "my-mail-file.txt";
-	ifstream in(file_name.c_str());    // open the file
+	ifstream in(file_name.c_str());    // 打开文件
 	if (!in) {
 		cerr << "no " << file_name << '\n';
 		system("pause");
