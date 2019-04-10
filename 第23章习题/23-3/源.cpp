@@ -13,12 +13,34 @@ int main()
 		cerr << "no " << file_name << '\n';
 		system("pause");
 	}
-	string s;
 	vector<string> senders;
 	vector<string> subjects;
-	regex sender{ R"(^Subject:([[:print:]]*)$)" };
-	regex subject{ R"(^From:([[:print:]]*)$)" };
-	while (getline(in, s))
+	regex sender;
+	regex subject;
+	string sub = R"(^Subject:([[:print:]]*)$)";
+	string send = R"(^From:([:print:]]*)$)";
+	try
+	{
+		sender = send;
+	}
+	catch (std::regex_error)
+	{
+		cerr << send << "是一个错误格式的模式!!!\n";
+		system("pause");
+		exit(1);
+	}
+	try
+	{
+		subject = sub;
+	}
+	catch (std::regex_error)
+	{
+		cerr << sub << "是一个错误格式的模式!!!\n";
+		system("pause");
+		exit(1);
+	}
+	
+	for (string s; getline(in, s);)
 	{
 		smatch matches;
 		if (regex_match(s, matches, sender))
@@ -34,5 +56,6 @@ int main()
 	system("pause");
 	return 0;
 }
+
 
 //------------------------------------------------------------------------------
