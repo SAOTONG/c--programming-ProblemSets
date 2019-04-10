@@ -4,7 +4,7 @@
 #include<iostream>
 #include<regex>
 using namespace std;
-//------------------------------------------------------------------------------
+
 int main()
 {
 	string file_name = "my-mail-file.txt";
@@ -18,7 +18,7 @@ int main()
 	regex sender;
 	regex subject;
 	string sub = R"(^Subject:([[:print:]]*)$)";
-	string send = R"(^From:([:print:]]*)$)";
+	string send = R"(^From:([[:print:]]*)$)";
 	try
 	{
 		sender = send;
