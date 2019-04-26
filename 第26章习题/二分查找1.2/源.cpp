@@ -3,7 +3,7 @@
 using namespace std;
 //number_of_times用来记录二分查找算法完成查找所用的次数。
 int number_of_times = 0;
-//
+
 template <typename ForwardIterator,typename T>
 bool my_binary(ForwardIterator first, ForwardIterator last, const T& value)
 {
